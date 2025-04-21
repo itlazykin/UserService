@@ -10,7 +10,6 @@ import ru.astondevs.users.input.Input;
 import ru.astondevs.users.output.ConsoleOutput;
 import ru.astondevs.users.output.Output;
 
-
 import java.util.Arrays;
 import java.util.List;
 
