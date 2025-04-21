@@ -1,5 +1,7 @@
 # User Service - консольное CRUD приложение с Hibernate и PostgreSQL
 
+![CI GitHubAction](https://github.com/itlazykin/UserService/blob/master/.github/workflows/maven-publish.yml)
+
 #### Описание проекта
 Консольное приложение user-service разработано на Java с использованием Hibernate в качестве ORM для взаимодействия с PostgreSQL. Приложение предоставляет базовые CRUD-операции (Create, Read, Update, Delete) для сущности User через консольный интерфейс.
 
