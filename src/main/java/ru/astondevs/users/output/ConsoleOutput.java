@@ -1,4 +1,4 @@
-package ru.astondevs.users.configuration.output;
+package ru.astondevs.users.output;
 
 public class ConsoleOutput implements Output {
     @Override
