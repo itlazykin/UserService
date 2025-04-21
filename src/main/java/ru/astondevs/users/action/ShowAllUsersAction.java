@@ -1,6 +1,6 @@
 package ru.astondevs.users.action;
 
-import ru.astondevs.users.configuration.output.Output;
+import ru.astondevs.users.output.Output;
 import ru.astondevs.users.dao.SimpleUserDao;
 import ru.astondevs.users.input.Input;
 import ru.astondevs.users.model.User;
