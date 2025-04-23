@@ -1,54 +1,19 @@
 package ru.astondevs.users.service;
 
-import ru.astondevs.users.dao.SimpleUserDao;
 import ru.astondevs.users.model.User;
 
 import java.util.List;
-import java.util.Optional;
 
-public class UserService {
-    private final SimpleUserDao userDao;
+public interface UserService {
+    Long save(User user);
 
-    public UserService(SimpleUserDao userDao) {
-        this.userDao = userDao;
-    }
+    User findById(Long id);
 
-    public User createUser(String name, String email, int age) {
-        User user = new User();
-        user.setName(name);
-        user.setEmail(email);
-        user.setAge(String.valueOf(age));
+    List<User> findAll();
 
-        Long userId = userDao.save(user);
-        return userDao.findById(userId);
-    }
+    boolean update(User user);
 
-    public Optional<User> getUserById(Long id) {
-        return Optional.ofNullable(userDao.findById(id));
-    }
+    void delete(User user);
 
-    public Optional<User> updateUser(Long id, String name, String email, Integer age) {
-        User user = userDao.findById(id);
-        if (user == null) {
-            return Optional.empty();
-        }
-        if (name != null) {
-            user.setName(name);
-        }
-        if (email != null) {
-            user.setEmail(email);
-        }
-        if (age != null) {
-            user.setAge(String.valueOf(age));
-        }
-        return userDao.update(user) ? Optional.of(user) : Optional.empty();
-    }
-
-    public List<User> getAllUsers() {
-        return userDao.findAll();
-    }
-
-    public boolean deleteUser(Long id) {
-        return userDao.deleteById(id);
-    }
+    boolean deleteById(Long id);
 }

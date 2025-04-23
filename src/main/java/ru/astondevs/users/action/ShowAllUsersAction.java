@@ -1,7 +1,7 @@
 package ru.astondevs.users.action;
 
 import ru.astondevs.users.output.Output;
-import ru.astondevs.users.dao.SimpleUserDao;
+import ru.astondevs.users.repository.SimpleUserRepository;
 import ru.astondevs.users.input.Input;
 import ru.astondevs.users.model.User;
 
@@ -14,9 +14,9 @@ public class ShowAllUsersAction implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, SimpleUserDao dao, Output out) {
+    public boolean execute(Input input, SimpleUserRepository simpleUserRepository, Output out) {
         out.println("\n=== Список всех пользователей ===");
-        List<User> users = dao.findAll();
+        List<User> users = simpleUserRepository.findAll();
         if (users.isEmpty()) {
             out.println("Пользователи не найдены");
         } else {

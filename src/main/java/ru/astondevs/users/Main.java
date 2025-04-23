@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ru.astondevs.users.action.*;
 import ru.astondevs.users.configuration.HibernateConfig;
-import ru.astondevs.users.dao.SimpleUserDao;
+import ru.astondevs.users.repository.SimpleUserRepository;
 import ru.astondevs.users.input.ConsoleInput;
 import ru.astondevs.users.input.Input;
 import ru.astondevs.users.output.ConsoleOutput;
@@ -21,7 +21,7 @@ public class Main {
         this.out = out;
     }
 
-    public void init(Input input, SimpleUserDao dao, List<UserAction> actions) {
+    public void init(Input input, SimpleUserRepository dao, List<UserAction> actions) {
         boolean run = true;
         while (run) {
             showMenu(actions);
@@ -47,7 +47,7 @@ public class Main {
             LOGGER.info("Приложение запущено");
             Output output = new ConsoleOutput();
             Input input =  new ConsoleInput();
-            SimpleUserDao dao = new SimpleUserDao();
+            SimpleUserRepository dao = new SimpleUserRepository();
             List<UserAction> actions = Arrays.asList(
                     new CreateUserAction(),
                     new FindUserByIdAction(),

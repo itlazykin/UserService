@@ -1,4 +1,4 @@
-package ru.astondevs.users.dao;
+package ru.astondevs.users.repository;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -9,11 +9,11 @@ import ru.astondevs.users.model.User;
 import java.util.List;
 import java.util.Optional;
 
-public class SimpleUserDao implements UserDao {
-    private static final Logger LOGGER = LogManager.getLogger(SimpleUserDao.class);
+public class SimpleUserRepository implements UserRepository {
+    private static final Logger LOGGER = LogManager.getLogger(SimpleUserRepository.class);
     private final HibernateExecutor executor;
 
-    public SimpleUserDao() {
+    public SimpleUserRepository() {
         this.executor = new HibernateExecutor(
                 HibernateConfig.getSessionFactory(),
                 LOGGER

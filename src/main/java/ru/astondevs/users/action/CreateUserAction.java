@@ -1,7 +1,7 @@
 package ru.astondevs.users.action;
 
 import ru.astondevs.users.output.Output;
-import ru.astondevs.users.dao.SimpleUserDao;
+import ru.astondevs.users.repository.SimpleUserRepository;
 import ru.astondevs.users.input.Input;
 import ru.astondevs.users.model.User;
 
@@ -12,7 +12,7 @@ public class CreateUserAction implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, SimpleUserDao dao, Output out) {
+    public boolean execute(Input input, SimpleUserRepository simpleUserRepository, Output out) {
         out.println("\n=== Создание нового пользователя ===");
         String name = input.askStr("Введите имя: ");
         String email = input.askStr("Введите email: ");
@@ -21,7 +21,7 @@ public class CreateUserAction implements UserAction {
         user.setName(name);
         user.setEmail(email);
         user.setAge(String.valueOf(age));
-        Long id = dao.save(user);
+        Long id = simpleUserRepository.save(user);
         out.println("Пользователь создан с ID: " + id);
         return true;
     }

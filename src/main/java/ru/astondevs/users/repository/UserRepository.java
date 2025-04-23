@@ -1,10 +1,10 @@
-package ru.astondevs.users.dao;
+package ru.astondevs.users.repository;
 
 import ru.astondevs.users.model.User;
 
 import java.util.List;
 
-public interface UserDao {
+public interface UserRepository {
     Long save(User user);
 
     User findById(Long id);
